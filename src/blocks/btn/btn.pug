@@ -1,0 +1,25 @@
+mixin btn(data)
+  if data.link
+    if data.download
+      +e.A.btn.btn(class=attributes.class href!=data.href download)!= data.text
+    else if data.target
+      +e.A.btn.btn(class=attributes.class href!=data.href target=data.target)!= data.text
+    else
+      +e.A.btn.btn(class=attributes.class href!=data.href)!= data.text
+  else
+    if data.modal
+      +e.BUTTON.btn.btn(class=attributes.class type=data.type data-modal=data.modal)!= data.text
+    else
+      +e.BUTTON.btn.btn(class=attributes.class type=data.type data-modal=data.modal)!= data.text
+
+//- +btn({
+//-   link: false, // true = <a>, false = <button>
+//-   download: false, // download file
+//-   href: false, // if link: true 
+//-   type: false, // if link: false { button, submit }
+//-   text: 'кнопка'
+//- })
+
+mixin burgerBtn
+  +b.BUTTON.burger
+    +e.SPAN.icon

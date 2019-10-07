@@ -1,0 +1,56 @@
+.formWrapper
+  display: none
+  position: relative
+  max-width: 930px
+  width: 100%
+  padding: 40px 34px
+  background: #FFFFFF
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2)
+  border-radius: 10px
+  +tablet
+    max-width: calc(100% - 80px)
+  +mobile
+    max-width: calc(100% - 30px)
+    padding: 26px 24px 36px
+
+.form
+  &__container
+    +flex('between-wrap')
+  &__title
+    color: #353D43
+    +font(30px,600,120%)
+    margin-bottom: 24px
+    +mobile
+      font-size: 24px
+      text-align: center
+
+  &__text
+    color: #3D4144
+    opacity: .7
+    font-size: 14px
+    line-height: 140%
+    margin-bottom: 24px
+      
+  &__btn
+    +mobile
+      display: block
+      margin: 0 auto
+
+//=============================================//
+
+#main
+  display: block
+  position: absolute
+  width: 100%
+  bottom: -100px
+  z-index: 1
+  left: 50%
+  transform: translateX(-50%)
+  +mobile
+    bottom: -180px
+
+//=============================================//
+
+@import 'input/input'
+@import 'consent/consent'
+@import 'ajaxMessage/ajaxMessage'

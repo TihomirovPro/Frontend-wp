@@ -1,0 +1,27 @@
+include input/input
+include consent/consent
+include ajaxMessage/ajaxMessage
+
+mixin form(id, title, btn)
+  .formWrapper(id=id)
+    +b.FORM.form(class=attributes.class)
+      if title
+        +e.P.title!=title
+      +e.container
+        +select({name: 'name'})
+        +input({type: 'text', name: 'name', placeholder: 'Имя*', required: true, textarea: false})
+        +input({type: 'text', name: 'phone', placeholder: 'Телефон*', required: true, textarea: false})
+        +btn({type: 'submit', text: btn})
+    +ajaxMessage()
+
+mixin formWrite(id, title, btn)
+  .formWrapper(id=id)
+    +b.FORM.form(class=attributes.class)
+      if title
+        +e.P.title!=title
+      +e.container
+        input(name='spec' value!="<?php the_title(); ?>" hidden)
+        +input({type: 'text', name: 'name', placeholder: 'Ваше имя*', required: true, textarea: false})
+        +input({type: 'text', name: 'phone', placeholder: 'Телефон*', required: true, textarea: false})
+      +btn({type: 'submit', text: btn})
+    +ajaxMessage()

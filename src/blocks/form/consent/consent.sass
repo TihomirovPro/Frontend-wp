@@ -1,0 +1,37 @@
+.formConsent
+  display: flex
+  margin-bottom: 24px
+  
+  &__container
+    position: relative
+    min-width: 18px
+    margin-right: 8px
+
+  &__input
+    position: absolute
+    opacity: 0
+    z-index: -1
+    &:checked + .formConsent__checkbox
+      .formConsent__icon
+        opacity: 1
+  
+  &__checkbox
+    +size(18px)
+    +flex('center')
+    cursor: pointer
+    border-radius: 2px
+    border: 2px solid #C4C4C4
+
+  &__icon
+    +size(15px)
+    opacity: 0
+    transition: .2s
+
+  &__text
+    text-align: left
+    font-weight: 300
+    font-size: 12px
+    line-height: 18px
+    color: #5B5B5B
+    a
+      border-bottom: 1px solid#5B5B5B

@@ -1,0 +1,58 @@
+.form
+  // &__label
+  //   display: block
+  //   font-weight: 300
+  //   line-height: 19px
+  //   font-size: 14px
+  //   text-align: center
+  //   color: #5B5B5B
+  //   margin-bottom: 15px
+
+  &__input
+    +size(190px, 48px)
+    padding: 6px 10px
+    color: #000
+    background: #fff
+    border: 2px solid #9BCDB6
+    border-radius: 10px
+    +tablet
+      margin-bottom: 30px
+    +mobile
+      margin-bottom: 24px
+      width: 100%
+      &:last-child
+        margin-bottom: 30px
+
+
+//=============================================//
+
+.filter
+
+  &__radioLabel
+    display: flex
+    align-items: center
+    cursor: pointer
+    margin-bottom: 18px
+    &:last-child
+      margin-bottom: 0
+
+  &__radio
+    position: absolute
+    opacity: 0
+    &:checked
+      &+.filter__radioBox
+        border-color: $colorMain
+        &:before
+          opacity: 1
+
+  &__radioBox
+    position: relative
+    +flex('center')
+    +size(20px)
+    min-width: 20px
+    margin-right: 10px
+    border: 2px solid #75787A
+    border-radius: 50%
+    +before(10px, 10px, $colorMain)
+      opacity: 0
+      border-radius: 50%

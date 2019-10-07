@@ -1,0 +1,70 @@
+.btn
+	height: 48px
+	color: $white
+	display: inline-block
+	transition: .3s
+	min-width: 160px
+	+font(16px,600,48px)
+	text-align: center
+	padding: 0 16px
+	border-radius: 46px
+	background-color: #448277
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0)
+	&:hover
+		background: #6AA496
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15)
+	&:active
+		background: #397369
+		box-shadow: 0px 4px 6px rgba(0, 0, 0, 0)
+
+	&.btn_white
+		background-color: $white
+		color: $black
+		&:hover
+			background-color: $white
+		&:active
+			background: #C1E8DE
+
+	&.btn_light
+		background-color: #6AA496
+		&:hover
+			background-color: #7EBBAC
+		&:active
+			background: #4F8D7E
+
+// ---------- Burger ---------- //
+
+.burger
+	position: relative
+	display: none
+	z-index: 99
+	+size(24px)
+	+mobile
+		+flex('center')
+		&.active
+			.burger
+				&__icon
+					background: transparent
+					&:before,
+					&:after
+						top: 0
+						transform: rotate(45deg)
+						transition-delay: .2s, 0s
+					&:before
+						transform: rotate(-45deg)
+	&__icon
+		display: block
+		position: relative
+		+size(18px, 2px)
+		background: #fff
+		border-radius: 50px
+		transition: background 0s .2s
+		+beforeAfter(18px, 2px, #fff)
+			border-radius: 50px
+			left: 0
+			top: 6px
+			transition-property: transform, top
+			transition-duration: .2s, .2s
+			transition-delay: 0s, .2s
+		&:before
+			top: -6px

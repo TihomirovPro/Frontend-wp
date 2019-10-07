@@ -1,0 +1,89 @@
+*,
+*:before,
+*:after
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-weight: inherit
+  line-height: inherit
+  color: inherit
+  outline: 0
+  &:focus
+    outline: 0
+    background: 0
+
+html,
+body
+  display: block
+  width: 100%
+  font-family: $fontMain
+  font-size: $fontSize
+  font-weight: normal
+  color: $colorText
+  line-height: $lineHeight
+  -webkit-text-size-adjust: 100%
+  background-color: $colorTheme
+  text-rendering: optimizeLegibility
+
+header,
+nav,
+main,
+section,
+footer,
+label
+  display: block
+
+a
+  background-color: transparent
+  text-decoration: none
+  color: inherit
+
+ul
+  list-style-type: none
+
+img
+  border-style: none
+
+button,
+input,
+optgroup,
+select,
+textarea
+  font-family: inherit
+  font-size: 100%
+  line-height: $lineHeight
+  border: none
+  border-radius: 0
+  box-shadow: none
+  background-color: transparent
+  font: inherit
+  color: inherit
+  letter-spacing: inherit
+  &:focus
+    outline: none
+
+textarea
+  overflow: auto
+
+button,
+input
+  overflow: visible
+
+button,
+select
+  text-transform: none
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"]
+  cursor: pointer
+  -webkit-appearance: button
+
+::-webkit-file-upload-button
+  -webkit-appearance: button
+  font: inherit
+
+b,
+strong
+  font-weight: bold

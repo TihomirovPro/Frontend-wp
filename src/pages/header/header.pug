@@ -1,0 +1,62 @@
+include ../../layout/bemto/bemto
+include ../../blocks/btn/btn
+
+//------------------------------ Mixins ------------------------------//
+
+mixin style(style)
+  link(rel="stylesheet" href!="<?php bloginfo('template_url'); ?>/css/"+ style +".css")
+
+mixin menu(menu)
+  +b.NAV.menu
+    +e.UL.list
+      each link in menu
+        +e.LI.item
+          +e.A.link(href=link.href)!= link.text
+
+  //------------------------------ __ ------------------------------//
+
+doctype html
+|<html lang='ru-RU'>
+head
+  meta(charset="UTF-8")
+  meta(name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, maximum-scale=1.0")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  | <?php if ( is_front_page() ): ?>
+  title <?php the_field('title', 'option'); ?>
+  meta(name="description" content!="<?php the_field('description', 'option'); ?>")
+  | <?php else: ?>
+  title <?php the_field('title'); ?>
+  meta(name="description" content!="<?php the_field('description'); ?>")
+  | <?php endif; ?>
+
+  //------------------------------ favicon ------------------------------//
+
+  //- link(rel="shortcut icon" type="image/png" href='favicon.png')
+  //- link(rel="shortcut icon" type="image/vnd.microsoft.icon" href='favicon.ico')
+  //- link(rel="shortcut icon" type="svg+xml" sizes="any" href='favicon.svg')
+
+  //------------------------------ Open graph ------------------------------//
+
+  //- meta(name="description" content= description)
+  //- meta(name="keywords" content= keywords)
+
+  //- meta(property="og:title" content= og_title)
+  //- meta(property="og:locale" content= og_locale)
+  //- meta(property="og:site_name" content= og_site_name)
+  //- meta(property="og:description" content= og_description)
+
+  //- meta(property="og:type" content= og_type)
+  //- meta(property="og:url" content= og_url)
+  //- meta(property="og:image" content= og_image)
+
+  //------------------------------ Styles ------------------------------//
+  | <?php wp_head(); ?>
+  
+  | <?php if ( is_front_page() ): ?>
+  +style('index')
+  | <?php endif; ?>
+
+
+|<body>
+
++b.HEADER.header

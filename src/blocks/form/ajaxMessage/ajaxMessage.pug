@@ -1,0 +1,9 @@
+mixin ajaxMessage()
+  +b.ajaxMessage
+    +e.success
+      +e.title Ваша заявка принята
+      +e.text Наш менеджер свяжется с вами в ближайшее время.
+    +e.error
+      +e.title Ошибка при отправке!
+      +e.text Попробуйте позднее!
+    +btn({type: 'button', text: 'закрыть'}).closeModal

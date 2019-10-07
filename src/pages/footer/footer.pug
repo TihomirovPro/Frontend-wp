@@ -1,0 +1,16 @@
+include ../../layout/bemto/bemto
+include ../../blocks/btn/btn
+
+//------------------------------ Mixins ------------------------------//
+
+mixin script(script)
+  script(src!="<?php bloginfo('template_url'); ?>/js/"+ script +".js")
+
+//------------------------------ __ ------------------------------//
+
++b.FOOTER.footer.wrapper
+ 
+|<?php wp_footer(); ?>
+
+|</body>
+|</html>

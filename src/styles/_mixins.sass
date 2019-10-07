@@ -1,0 +1,171 @@
+=media($from, $to)
+  @if $from == max or $from == min
+    @media only screen and (#{$from}-width: $to)
+      @content
+  @else
+    @media only screen and (max-width: $from) and (min-width: $to)
+      @content
+
+//===================_Desktop_====================//
+  
+$desktopMin: 1200px
+
+=desktop($val: min)
+  +media($val, $bp-desktop-min)
+    @content
+
+//===================_Desktop-sm_====================//
+
+$desktopSmMax: 1050px
+$desktopSmMid: 1024px
+$desktopSmMin: 992px
+
+=desktopSm($from: $desktopSmMax, $to: $desktopSmMin)
+  @if $from == max or $from == min
+    +media($from, $desktopSmMax)
+      @content
+  @else
+    +media($from, $to)
+      @content
+
+//===================_Tablet_====================//
+
+$tabletMax: 991px
+$tabletMin: 768px
+
+=tablet($from: $tabletMax, $to: $tabletMin)
+  @if $from == max or $from == min
+    +media($from, $tabletMax)
+      @content
+  @else
+    +media($from, $to)
+      @content
+
+//===================__Mobile__====================//
+
+$mobileMax: 767px
+
+=mobile($from: max)
+  +media($from, $mobileMax)
+    @content
+
+//===================__Font__====================//
+
+=font($size:false, $weight:false, $height:false)
+  @if $size
+    font-size: $size
+  @if $weight
+    font-weight: $weight
+  @if $height
+    line-height: $height
+
+//===================__Width & Height__====================//
+
+=size($a, $b: false )
+	width: $a
+	@if $b
+		height: $b
+	@else
+		height: $a
+
+//===================__Flexbox__====================//
+
+=flex($flex)
+  display: flex
+
+  @if $flex == 'center'
+    justify-content: center
+    align-items: center
+
+  @elseif $flex == 'between'
+    justify-content: space-between
+
+  @elseif $flex == 'between-center'
+    justify-content: space-between
+    align-items: center
+
+  @elseif $flex == 'between-wrap'
+    justify-content: space-between
+    flex-wrap: wrap
+
+  @elseif $flex == 'between-center-wrap'
+    justify-content: space-between
+    align-items: center
+    flex-wrap: wrap
+
+  @elseif $flex == 'around'
+    justify-content: space-around
+
+//===================__Pseudo background__====================//
+
+=pseudoBackground($opacity, $background)
+	&::before
+    content: ''
+    display: block
+    position: absolute
+    background: $background
+    opacity: $opacity
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 0
+
+=beforeAfter($a, $b, $bg)
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    +size($a, $b)
+    background-color: $bg 
+    @content
+
+=before($a, $b, $bg)
+  &::before
+    content: ''
+    position: absolute
+    +size($a, $b)
+    background-color: $bg 
+    @content
+
+=after($a, $b, $bg)
+  &::after
+    content: ''
+    position: absolute
+    +size($a, $b)
+    background-color: $bg 
+    @content
+
+=bgImg($img, $size, $position)
+  background-image: url(../img/#{$img})
+  background-size: $size
+  background-position: $position
+  background-repeat: no-repeat
+
+//===================__Placeholder__====================//
+
+=placeholder
+  &.placeholder
+    @content
+  &:placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+
+//===================__Keyframes__====================//
+
+=keyframes($name)
+	@-webkit-keyframes #{$name}
+		@content
+	@-moz-keyframes #{$name}
+		@content
+	@-ms-keyframes #{$name}
+		@content
+	@keyframes #{$name}
+		@content
