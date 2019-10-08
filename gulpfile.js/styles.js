@@ -13,7 +13,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // styles
 function buildStyles (cb) {
-  return src(['src/styles/main.sass', 'src/styles/slider.sass', '!src/pages/header/header.sass', '!src/pages/footer/footer.sass', 'src/pages/*/*.sass'])
+  return src(['src/styles/main.sass', 'src/styles/slider.sass', 'src/pages/*/*.sass', '!src/pages/header/header.sass', '!src/pages/footer/footer.sass'])
     .pipe(sassGlob())
     .pipe(toaster('Sass', cb))
     .pipe(gulpif(isDevelopment, sourcemaps.init()))
